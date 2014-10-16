@@ -29,6 +29,7 @@
  ***********************************************************************************/
 
 #import <UIKit/UIKit.h>
+#import "STCollapseTableViewDelegate.h"
 
 /**
  *	STCollapseTableView is a UITableView subclass that automatically collapse and/or expand your sections.

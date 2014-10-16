@@ -34,8 +34,8 @@
 
 @interface STCollapseTableView () <UITableViewDataSource, UITableViewDelegate>
 
-@property (nonatomic, assign) id<UITableViewDataSource> collapseDataSource;
-@property (nonatomic, assign) id<UITableViewDelegate> collapseDelegate;
+@property (nonatomic, weak) id<UITableViewDataSource> collapseDataSource;
+@property (nonatomic, weak) id<UITableViewDelegate> collapseDelegate;
 @property (nonatomic, strong) NSMutableArray* sectionsStates;
 
 @end
@@ -142,6 +142,7 @@
         
         if(animated)
 		{
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"TableViewUpdated" object:nil];
             NSArray* indexPathsToInsert = [self indexPathsForRowsInSectionAtIndex:sectionIndex];
             NSArray* indexPathsToDelete = [self indexPathsForRowsInSectionAtIndex:openedSection];
             
@@ -183,6 +184,12 @@
             [self reloadData];
         }
 	}
+    
+    if(self.collapseDelegate != nil && [self.collapseDelegate conformsToProtocol:@protocol(STCollapseTableViewDelegate)])
+    {
+        id<STCollapseTableViewDelegate> extendedDelegate = (id<STCollapseTableViewDelegate>)self.collapseDelegate;
+        [extendedDelegate tableView:self didOpenSection:sectionIndex];
+    }
 }
 
 - (void)closeSection:(NSUInteger)sectionIndex animated:(BOOL)animated
@@ -197,6 +204,12 @@
     else
     {
         [self reloadData];
+    }
+    
+    if(self.collapseDelegate != nil && [self.collapseDelegate conformsToProtocol:@protocol(STCollapseTableViewDelegate)])
+    {
+        id<STCollapseTableViewDelegate> extendedDelegate = (id<STCollapseTableViewDelegate>)self.collapseDelegate;
+        [extendedDelegate tableView:self didCloseSection:sectionIndex];
     }
 }
 
@@ -217,6 +230,9 @@
     {
 		[self openSection:sectionIndex animated:animated];
 	}
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"TableViewUpdated" object:nil];
+
+
 }
 
 - (BOOL)isOpenSection:(NSUInteger)sectionIndex

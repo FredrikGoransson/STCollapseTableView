@@ -27,6 +27,7 @@
 		41DC336819EFBAE000199D8C /* CustomHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomHeaderView.h; sourceTree = "<group>"; };
 		41DC336919EFBAE000199D8C /* CustomHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomHeaderView.m; sourceTree = "<group>"; };
 		41DC336B19EFC15F00199D8C /* CustomHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomHeaderView.xib; sourceTree = "<group>"; };
+		41DC336D19EFD5B400199D8C /* STCollapseTableViewDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = STCollapseTableViewDelegate.h; sourceTree = "<group>"; };
 		9A519E7817B5006A00B5C3AD /* STCollapseTableViewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = STCollapseTableViewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A519E7B17B5006A00B5C3AD /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		9A519E7D17B5006A00B5C3AD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -122,6 +123,7 @@
 		9A519E9E17B5008500B5C3AD /* STCollapseTableView */ = {
 			isa = PBXGroup;
 			children = (
+				41DC336D19EFD5B400199D8C /* STCollapseTableViewDelegate.h */,
 				9A519E9F17B5008500B5C3AD /* STCollapseTableView.h */,
 				9A519EA017B5008500B5C3AD /* STCollapseTableView.m */,
 			);
